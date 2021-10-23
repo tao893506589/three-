@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            josnp原理：
+                通过script标签进行跨域   src属性可以指向接口地址  后续接口执行一个回调函数，将异步数据传给回调函数，前端获取即可。
+            
+            什么叫做跨域？
+                浏览器的同源策略： 域名，端口，协议   有一个不同就是跨域    
+            
+            jsonp的缺点：
+                只能解决get方式的跨域
+        
+        */ 
+
+
+        // 回调函数
+        function getdata(data){
+            console.log(data);
+        }
+    </script>
+    <script src="http://localhost:8080/api/data?cb=getdata"></script>
+</body>
+</html>

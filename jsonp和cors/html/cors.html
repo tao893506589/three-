@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+        /*
+            jsonp只能解决get方式的跨域问题
+            其他方式的请求可以使用 xhr(ajax)方式进行请求   但是步骤很麻烦
+
+            对于post和put等方式可以使用CORS（跨域资源共享）进行解决   需要 后端进行修改响应头的字段 
+                配置响应头字段：Access-Control-Allow-Origin这个字段。
+
+            使用fetch   第一个then的回调是获取不到数据的   只会获取到请求的状态
+                        第二个then的可以得到后端传回来的数据
+        
+        */ 
+
+
+
+        fetch('http://127.0.0.1:8080/api/data').then(res=>{
+            return res.json()           //  返回接送格式的数据
+        }).then(res=>{                  //  数据在第二个then中获得
+            console.log(res);
+        })
+
+
+
+   </script>
+</body>
+</html>
