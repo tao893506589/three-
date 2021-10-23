@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入客户端的js文件 -->
+    <script src="./client.js"></script>
+</head>
+<body>
+    <h1>websokect实现在线聊天室</h1>
+    <div id="content" style="width:400px;height:400px;border:1px solid #ccc"></div>
+    <input type="text" id="msg" style="width:200px">
+    <button id="submit">提交</button>
+
+    <script>
+    	//点击提交，获取输入框的值，然后通过ws将其发送给服务端，然后服务端进行推送广播给客户端
+        document.querySelector("#submit").addEventListener("click",()=>{
+            let myValue = document.querySelector("#msg").value;
+            //需要将myValue发送给服务端
+            ws.send(myValue)        // 这里的ws是引入的js文件中的   引入之后就可以使用
+        })
+    </script>
+</body>
+</html>
