@@ -1,0 +1,27 @@
+express  是基于nodejs平台的
+更加快速、开放、极简的 Web 开发框架
+相当于模块  进行下载引入   在下载express时也下载了express的中间件
+
+
+搭建服务器更加简单
+    引入之后直接        let server = express()
+                    server.listen(端口，地址，回调)
+
+
+也可以进行静态资源的托管
+        server.use(express.static('./文件'))
+
+
+use的使用
+        server.use([地址],中间件|路由|函数体)
+
+
+路由：
+        相当于一个导向    告诉浏览器该去哪
+    步骤：
+        创建路由
+            let userRouter = express.Router()
+        安装路由
+            app.use('地址',userRouter)
+        路由响应
+            userRouter.响应api(地址，处理函数)

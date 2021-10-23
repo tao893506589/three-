@@ -1,0 +1,40 @@
+show dbs 查询所有数据库
+use user 创建/切换数据库
+
+进入数据库里面后，调用此方法就可以删除数据了
+db.dropDatabase()
+
+db.createCollection('user')  创建集合
+db.getCollectionNames()  查询当前user数据库下面所有的集合列表
+
+
+db.user.insertMany([{username:'张三',age:18},{username:'李四',age:20}])
+db.user.find()  查询user集合下面的所有的数据内容
+db.user.find({age:18})    按照条件进行查找 
+
+db.user.updateMany({age: 20}, {$set: {age:26}})
+
+
+删除字段里的所有数据
+db.user.remove({}) 
+
+
+删除集合
+db.user.drop()
+
+
+
+
+查询所有数据，只会显示username字段
+
+db.user.find({},{username:1,_id:0})
+
+
+
+按照年龄进行降序    然后跳过第一条   获取此时的第一条
+
+db.user.find().sort(age:-1).skip(1).limit(1)
+
+
+
+
